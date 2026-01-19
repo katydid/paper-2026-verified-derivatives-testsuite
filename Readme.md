@@ -1,6 +1,8 @@
 # Cross Language Test Suite for Katydid
 
-[![Build Status](https://github.com/katydid/validator-testsuite/actions/workflows/build.yml/badge.svg)](https://github.com/katydid/validator-testsuite/actions)
+[![Build Status](https://github.com/katydid/paper-2026-verified-derivatives-testsuite/actions/workflows/build.yml/badge.svg)](https://github.com/katydid/paper-2026-verified-derivatives-testsuite/actions)
+
+This repo was originally based [katydid/validator-testsuite](https://github.com/katydid/validator-testsuite/commit/565d7259b4a086251c11862a68b5619f731156bb)
 
 The test suite is a language agnostic test suite.
 

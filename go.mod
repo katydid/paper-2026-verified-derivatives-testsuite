@@ -1,4 +1,4 @@
-module github.com/katydid/validator-testsuite
+module github.com/katydid/paper-2026-verified-derivatives-testsuite
 
 go 1.24
 
