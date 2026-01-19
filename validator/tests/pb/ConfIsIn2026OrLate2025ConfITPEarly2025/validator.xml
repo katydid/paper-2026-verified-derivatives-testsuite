@@ -29,7 +29,7 @@
 										<TreeNode>
 											<Name>
 												<Name>
-													<StringValue>Y</StringValue>
+													<StringValue>Year</StringValue>
 													<BytesValue></BytesValue>
 												</Name>
 											</Name>
@@ -74,7 +74,7 @@
 												<TreeNode>
 													<Name>
 														<Name>
-															<StringValue>Y</StringValue>
+															<StringValue>Year</StringValue>
 															<BytesValue></BytesValue>
 														</Name>
 													</Name>
@@ -114,7 +114,7 @@
 												<TreeNode>
 													<Name>
 														<Name>
-															<StringValue>M</StringValue>
+															<StringValue>Month</StringValue>
 															<BytesValue></BytesValue>
 														</Name>
 													</Name>

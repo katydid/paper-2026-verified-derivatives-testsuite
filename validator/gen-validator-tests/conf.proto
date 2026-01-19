@@ -7,7 +7,7 @@ option go_package = "github.com/katydid/validator-testsuite/validator/gen-valida
 // ideas for field names gathered from https://conferenceindex.org
 
 message Conf {
-    optional string N = 1; // name
+    optional string Name = 1; // name
     optional date Due = 2; // submission deadline
     optional date Notify = 3; // notification
     optional location Loc = 4; // location
@@ -16,9 +16,9 @@ message Conf {
 }
 
 message date {
-    optional string Y = 1; // 4 digit year
-    optional string M = 2; // 2 digit month
-    optional string D = 3; // 2 digit day
+    optional string Year = 1; // 4 digit year
+    optional string Month = 2; // 2 digit month
+    optional string Day = 3; // 2 digit day
 }
 
 message location {

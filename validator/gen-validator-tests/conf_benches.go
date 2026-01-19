@@ -26,7 +26,7 @@ func RandomValidDate(r *rand.Rand) *Date {
 	year := fmt.Sprintf("%d", 2000+r.Intn(100))
 	month := fmt.Sprintf("%02d\n", 1+r.Intn(12))
 	day := fmt.Sprintf("%02d\n", 1+r.Intn(30))
-	return &Date{Y: proto.String(year), M: proto.String(month), D: proto.String(day)}
+	return &Date{Year: proto.String(year), Month: proto.String(month), Day: proto.String(day)}
 }
 
 func RandomValidLocation(r *rand.Rand) *Location {
@@ -56,13 +56,13 @@ func RandomConf2026(r *rand.Rand) ProtoMessage {
 		log.Printf("random looped: RandomValidConf")
 		c = RandomValidConf(r).(*Conf)
 	}
-	c.Due.Y = proto.String("2026")
+	c.Due.Year = proto.String("2026")
 	return c
 }
 
 func RandomConfNot2026(r *rand.Rand) ProtoMessage {
 	c := RandomValidConf(r).(*Conf)
-	for c.GetDue().GetY() == "2026" {
+	for c.GetDue().GetYear() == "2026" {
 		log.Printf("random looped: RandomValidConf")
 		c = RandomValidConf(r).(*Conf)
 	}
@@ -77,14 +77,14 @@ func RandomConfIsIn2026OrLate2025AndEU(r *rand.Rand) ProtoMessage {
 		c = RandomValidConf(r).(*Conf)
 	}
 	if r.Intn(2) == 0 {
-		c.Due.Y = proto.String("2026")
+		c.Due.Year = proto.String("2026")
 	} else {
-		c.Due.Y = proto.String("2025")
+		c.Due.Year = proto.String("2025")
 		switch r.Intn(2) {
 		case 0:
-			c.Due.M = proto.String("11")
+			c.Due.Month = proto.String("11")
 		case 1:
-			c.Due.M = proto.String("12")
+			c.Due.Month = proto.String("12")
 		}
 	}
 	c.Loc.Cont = proto.String("EU")

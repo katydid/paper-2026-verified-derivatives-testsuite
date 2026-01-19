@@ -1,20 +1,20 @@
 
-„
+œ
 
-conf.protomain"¨
-Conf
-N (	RN
+conf.protomain"®
+Conf
+Name (	RName
 Due (2
 .main.dateRDue"
 Notify (2
 .main.dateRNotify 
 Loc (2.main.locationRLoc
 Category (	RCategory
-Tags (	RTags"0
-date
-Y (	RY
-M (	RM
-D (	RD"F
+Tags (	RTags"B
+date
+Year (	RYear
+Month (	RMonth
+Day (	RDay"F
 location
 Cont (	RCont
 Ctry (	RCtry

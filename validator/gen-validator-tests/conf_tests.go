@@ -19,55 +19,55 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-var ConfIsIn2026 = G{"main": InPath("Due", InPath("Y", Value(Eq(StringVar(), StringConst("2026")))))}
+var ConfIsIn2026 = G{"main": InPath("Due", InPath("Year", Value(Eq(StringVar(), StringConst("2026")))))}
 
 var ConfITP2026 = &Conf{
-	N: proto.String("ITP"),
+	Name: proto.String("ITP"),
 	Due: &Date{
-		Y: proto.String("2026"),
+		Year: proto.String("2026"),
 	},
 }
 
 var ConfICFP2017 = &Conf{
-	N: proto.String("ICFP"),
+	Name: proto.String("ICFP"),
 	Due: &Date{
-		Y: proto.String("2017"),
+		Year: proto.String("2017"),
 	},
 }
 
 var ConfIsIn2026OrLate2025 = G{"main": InPath("Due",
 	AnyOf(
-		InPath("Y", Value(Eq(StringVar(), StringConst("2026")))),
+		InPath("Year", Value(Eq(StringVar(), StringConst("2026")))),
 		AllOf(
-			InPath("Y", Value(Eq(StringVar(), StringConst("2025")))),
-			InPath("M", Value(GE(StringVar(), StringConst("10")))),
+			InPath("Year", Value(Eq(StringVar(), StringConst("2025")))),
+			InPath("Month", Value(GE(StringVar(), StringConst("10")))),
 		),
 	),
 )}
 
 var ConfITPLate2025 = &Conf{
-	N: proto.String("ITP"),
+	Name: proto.String("ITP"),
 	Due: &Date{
-		Y: proto.String("2025"),
-		M: proto.String("11"),
+		Year:  proto.String("2025"),
+		Month: proto.String("11"),
 	},
 }
 
 var ConfITPEarly2025 = &Conf{
-	N: proto.String("ITP"),
+	Name: proto.String("ITP"),
 	Due: &Date{
-		Y: proto.String("2025"),
-		M: proto.String("04"),
+		Year:  proto.String("2025"),
+		Month: proto.String("04"),
 	},
 }
 
 var ConfIsIn2026OrLate2025AndEU = G{"main": InAnyOrder(
 	In("Due",
 		AnyOf(
-			InPath("Y", Value(Eq(StringVar(), StringConst("2026")))),
+			InPath("Year", Value(Eq(StringVar(), StringConst("2026")))),
 			AllOf(
-				InPath("Y", Value(Eq(StringVar(), StringConst("2025")))),
-				InPath("M", Value(GE(StringVar(), StringConst("10")))),
+				InPath("Year", Value(Eq(StringVar(), StringConst("2025")))),
+				InPath("Month", Value(GE(StringVar(), StringConst("10")))),
 			),
 		),
 	),
@@ -78,10 +78,10 @@ var ConfIsIn2026OrLate2025AndEU = G{"main": InAnyOrder(
 )}
 
 var ConfITPEU = &Conf{
-	N: proto.String("ITP"),
+	Name: proto.String("ITP"),
 	Due: &Date{
-		Y: proto.String("2025"),
-		M: proto.String("11"),
+		Year:  proto.String("2025"),
+		Month: proto.String("11"),
 	},
 	Loc: &Location{
 		Cont: proto.String("EU"),
@@ -89,9 +89,9 @@ var ConfITPEU = &Conf{
 }
 
 var ConfITPNotEU = &Conf{
-	N: proto.String("ITP"),
+	Name: proto.String("ITP"),
 	Due: &Date{
-		Y: proto.String("2026"),
+		Year: proto.String("2026"),
 	},
 	Loc: &Location{
 		Cont: proto.String("AF"),
@@ -101,12 +101,12 @@ var ConfITPNotEU = &Conf{
 var ConfIsComputerScience = G{"main": InPath("Category", Value(Eq(StringVar(), StringConst("Computer Science"))))}
 
 var ConfComputerScience = &Conf{
-	N:        proto.String("ICFP"),
+	Name:     proto.String("ICFP"),
 	Category: proto.String("Computer Science"),
 }
 
 var ConfNotComputerScience = &Conf{
-	N:        proto.String("ICFP"),
+	Name:     proto.String("ICFP"),
 	Category: proto.String("Functional Programming"),
 }
 

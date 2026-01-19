@@ -1,7 +1,7 @@
 {
-	"N": "ITP",
+	"Name": "ITP",
 	"Due": {
-		"Y": "2026"
+		"Year": "2026"
 	},
 	"Loc": {
 		"Cont": "AF"
