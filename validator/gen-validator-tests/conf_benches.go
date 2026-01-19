@@ -55,6 +55,7 @@ func RandomConf2026(r *rand.Rand) ProtoMessage {
 	for c.GetDue() == nil {
 		log.Printf("random looped: RandomValidConf")
 		c = RandomValidConf(r).(*Conf)
+		c.Due = RandomValidDate(r)
 	}
 	c.Due.Year = proto.String("2026")
 	return c
@@ -65,6 +66,7 @@ func RandomConfNot2026(r *rand.Rand) ProtoMessage {
 	for c.GetDue().GetYear() == "2026" {
 		log.Printf("random looped: RandomValidConf")
 		c = RandomValidConf(r).(*Conf)
+		c.Due = RandomValidDate(r)
 	}
 	log.Printf("random returned: RandomValidConf")
 	return c
@@ -75,6 +77,8 @@ func RandomConfIsIn2026OrLate2025AndEU(r *rand.Rand) ProtoMessage {
 	for c.GetDue() == nil || c.GetLoc() == nil {
 		log.Printf("random looped: RandomValidConf")
 		c = RandomValidConf(r).(*Conf)
+		c.Due = RandomValidDate(r)
+		c.Loc = RandomValidLocation(r)
 	}
 	if r.Intn(2) == 0 {
 		c.Due.Year = proto.String("2026")

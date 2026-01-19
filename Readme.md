@@ -22,12 +22,11 @@ Also found in the testcase folder is a filename starting with `valid` or `invali
 The validator benchmarks are located in the `./validator/benches` folder.
 
 This folder is not checked in, because of its size.
-Instead this folder can be generated, by running `make regenerate-all`.
+Instead this folder can be generated, by running `make regenerate-all` or `make regenerate-paper-benchmarks` depending on which benchmarks you want to run.
 This will require `go` to be installed and this folder to checked out to
 `./src/github.com/katydid/paper-2026-verified-derivatives-testsuite`.
 
 Inside each codec folder is a list of benchcase folders, each for a descriptive name.
 Files in the codec folder are schemas that might be required by a benchcase.
 For example, marshaled protocol buffer file descriptor sets.
-Also found in the benchcase folder is 1000 generated files each starting with a number and following by codec and schema information.
 

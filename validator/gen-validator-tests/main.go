@@ -29,7 +29,9 @@ import (
 )
 
 var seed = flag.Int64("seed", time.Now().UnixNano(), "seed for generating benchmarks")
-var benches = flag.Bool("benches", false, "generate benchmarks")
+var generateBenches = flag.Bool("generate-benches", false, "generate benchmarks")
+var numberOfBenches = flag.Int64("benches", 1000, "number of benchmarks to generate")
+var benchContains = flag.String("bench-pattern", "", "only generate benches that contains the pattern")
 
 func main() {
 	log.SetFlags(log.Lshortfile)
@@ -74,11 +76,15 @@ func main() {
 		}
 	}
 
-	if !*benches {
+	if !*generateBenches {
 		return
 	}
 
 	for _, v := range BenchValidators {
+		if *benchContains != "" && !strings.Contains(v.Name, *benchContains) {
+			continue
+		}
+
 		codecFolder := filepath.Join(filepath.Join(path, "benches"), v.CodecName)
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
@@ -100,7 +106,9 @@ func main() {
 
 		r := rand.New(rand.NewSource(*seed))
 
-		for i := 0; i < 500; i++ {
+		numberOfInvalid := int(*numberOfBenches / 2)
+		numberOfValid := numberOfInvalid - numberOfInvalid
+		for i := 0; i < numberOfInvalid; i++ {
 			bytes := v.ValidBytes(r)
 			for !v.Validate(bytes) {
 				log.Printf("generated invalid: %s - %s", v.Name, v.CodecName)
@@ -109,7 +117,7 @@ func main() {
 			bytesFilename := filepath.Join(folder, "valid_"+strconv.Itoa(i)+"."+v.Extension)
 			writeFile(bytesFilename, bytes)
 		}
-		for i := 0; i < 500; i++ {
+		for i := 0; i < numberOfValid; i++ {
 			bytes := v.InvalidBytes(r)
 			for v.Validate(bytes) {
 				log.Printf("generated valid, wanted invalid: %s - %s", v.Name, v.CodecName)

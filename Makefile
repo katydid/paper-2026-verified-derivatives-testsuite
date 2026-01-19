@@ -12,3 +12,6 @@ regenerate-tests:
 
 regenerate-all:
 	(cd validator && make regenerate-all)
+
+regenerate-paper-benchmarks:
+	(cd validator && make regenerate-paper-benchmarks)
